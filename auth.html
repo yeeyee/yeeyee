@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易易网 校园分类信息平台</title>
+<script type="text/javascript" src="//lib.sinaapp.com/js/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery.js">\x3C/script>')</script>
+<script type="text/javascript" src="js/yeeyee.js"></script>
+<link rel="stylesheet" type="text/css" href="css/yeeyee.css" />
+<link rel="stylesheet" type="text/css" href="css/signupForm.css" />
+<link rel="shortcut icon" href="yeeLogo.png" />
+<!--[if lt IE 7]><script language="javascript">location.replace("ie6index.html");</script> <![endif]-->
+<script>
+$(function(){
+	//定义autoYCenter函数，自动垂直居中
+	function autoYCenter($a){
+		winHeight=$(window).height();
+		if((winHeight)<($a.height()+35+11+25)){
+			z=0;
+		}else{
+			z=($(window).height()-$a.height())/2-30;
+		}
+		$a.animate({"margin-top":z},200);
+	}
+	autoYCenter($("#main_right"));
+	autoYCenter($("#main_left"));
+	
+	set=window.setInterval(function(){
+		autoYCenter($("#main_right"));
+	},3000);
+		
+	$(window).bind("resize",function(){
+		autoYCenter($("#main_right"));
+		autoYCenter($("#main_left"));
+	});
+	$(window).scroll(function(){
+		autoYCenter($("#main_right"));
+		autoYCenter($("#main_left"));
+	});
+	
+	$("#sign_con_signup").click(function(){
+		findEmail=$("#find_e-mail").val();
+		$.post("service/findpassword.php",{"findEmail":findEmail},function(data){	
+			$("#systemMessage").text(data).ready(function(e) {
+				$("#systemMessage").slideDown(200);
+			});
+		},"text");
+	});
+	$("#main_right #sign_con #firstStep input").focusAndBlur();//为各input加focusAndBlur入函数
+	
+});
+</script>
+</head>
+
+<body>
+<!--black_top star-->
+<div id="black_top">
+	<div id="location"> <a id="location_sc">中山大学（南校区）</a><a id="location_sw" >切换</a> </div>
+	<div id="logo"><a href="/"><img src="images/others/yeeLogo.png" width="27" height="27" alt="yeeLogo" />易易网</a></div>
+	<div id="search">
+			<input type="text" name="search" />
+			<div>易搜</div>
+	</div>
+	<div id="status">
+		<div id="sign">TOS</div>
+		<div id="user"></div>
+		<div id="loginForm" class="popup"></div>
+	</div>
+</div>
+<!--black_top end--> 
+
+<!--main_left start-->
+<div id="main_left">
+	<div id="top"></div>
+	<div id="con">
+		<div id="logo_big"><img src="../images/others/yeeLogo.png" width="138" height="138" alt="logo_big" /></div>
+		<div id="join">
+			<h1>校友认证</h1>
+			<h4>Alumni Certification</h4>
+		</div>
+	</div>
+	<div id="footer"></div>
+</div>
+<!--main_left end--> 
+<!--main_right start-->
+<div id="main_right">
+	<div id="sign_top"></div>
+	<div id="sign_con">
+		<form id="firstStep">
+			<h2>校友认证 Alumni Certification</h2>
+			<hr />
+			<p>1.什么是校友认证？<br />校友认证是易易网推出的一项身份认证功能，此项认证是为了确保用户的校友身份，从而提高易易网信息的质量。</p>
+			<p>2.为何要获得校友认证？<br />获得校友认证的账号在昵称后方会加上所属学校的校徽，以表示此账号是该校的校友。易易网其他用户看到认证的账号所发布的信息会产生更强的信任感。</p>
+			<p>3.如何获得校友认证？<br />方式1：发送短信到15889960721(640721)。(通过短号发送获得认证的速度会更快。)<br />方式2：发送Email到xiaoyou@yeeyee.net。<br />方式3：关注易易网官方微博weibo.com/yeeyeenet，并发送私信。<br />不同方式发送的内容至少应该包括姓名、学院、学号。我们在核实您的校友身份后会及时通过认证。<br />我们将会在未来推出更多更加智能化的认证方式，敬请期待。</p>
+			<p>4.欢迎向校友认证功能提出任何建议与意见。</p>
+			
+		</form>
+	</div>
+	<div id="sign_footer"></div>
+</div>
+<!--main_right end--> 
+
+<!--black_footer start-->
+<div id="black_footer"><div id="copyright">©Yeeyee.net 版权所有 Version Beta </div><div id="about"><a href="aboutus.html" target="_blank">关于易易</a><a href="auth.html" target="_blank">校友认证</a><a href="TOS.html" target="_blank">服务条款</a><a href="FAQ.html" target="_blank">常见问题</a></div></div>
+<!--black_footer end-->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2ec459fcba3ad369fc06661b2cbaf255' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+<style type="text/css">body{background-image:url(images/others/bgunsure2.jpg);}</style>

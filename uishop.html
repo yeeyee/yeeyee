@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易易网 校园分类信息平台</title>
+<script type="text/javascript" src="//lib.sinaapp.com/js/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery.js">\x3C/script>')</script>
+<script type="text/javascript" src="js/yeeyee.js"></script>
+<link rel="stylesheet" type="text/css" href="css/yeeyee.css" />
+<link rel="stylesheet" type="text/css" href="css/signupForm.css" />
+<link rel="shortcut icon" href="yeeLogo.png" />
+<!--[if lt IE 7]><script language="javascript">location.replace("ie6index.html");</script> <![endif]-->
+<script>
+$(function(){
+	//定义autoYCenter函数，自动垂直居中
+	function autoYCenter($a){
+		winHeight=$(window).height();
+		if((winHeight)<($a.height()+35+11+25)){
+			z=0;
+		}else{
+			z=($(window).height()-$a.height())/2-30;
+		}
+		$a.animate({"margin-top":z},200);
+	}
+	autoYCenter($("#main_right"));
+	autoYCenter($("#main_left"));
+	
+	set=window.setInterval(function(){
+		autoYCenter($("#main_right"));
+	},3000);
+		
+	$(window).bind("resize",function(){
+		autoYCenter($("#main_right"));
+		autoYCenter($("#main_left"));
+	});
+	$(window).scroll(function(){
+		autoYCenter($("#main_right"));
+		autoYCenter($("#main_left"));
+	});
+	
+	$("#sign_con_signup").click(function(){
+		findEmail=$("#find_e-mail").val();
+		$.post("service/findpassword.php",{"findEmail":findEmail},function(data){	
+			$("#systemMessage").text(data).ready(function(e) {
+				$("#systemMessage").slideDown(200);
+			});
+		},"text");
+	});
+	$("#main_right #sign_con #firstStep input").focusAndBlur();//为各input加focusAndBlur入函数
+	
+});
+</script>
+</head>
+
+<body>
+<!--black_top star-->
+<div id="black_top">
+	<div id="location"> <a id="location_sc">中山大学（南校区）</a><a id="location_sw" >切换</a> </div>
+	<div id="logo"><a href="/"><img src="images/others/yeeLogo.png" width="27" height="27" alt="yeeLogo" />易易网</a></div>
+	<div id="search">
+			<input type="text" name="search" />
+			<div>易搜</div>
+	</div>
+	<div id="status">
+		<div id="sign">TOS</div>
+		<div id="user"></div>
+		<div id="loginForm" class="popup"></div>
+	</div>
+</div>
+<!--black_top end--> 
+
+<!--main_left start-->
+<div id="main_left">
+	<div id="top"></div>
+	<div id="con">
+		<div id="logo_big"><img src="../images/others/yeeLogo.png" width="138" height="138" alt="logo_big" /></div>
+		<div id="join">
+			<h1>有爱商店</h1>
+			<h4>U&I Shop</h4>
+		</div>
+	</div>
+	<div id="footer"></div>
+</div>
+<!--main_left end--> 
+<!--main_right start-->
+<div id="main_right">
+	<div id="sign_top"></div>
+	<div id="sign_con">
+		<form id="firstStep">
+			<h2>有爱商店 U&I Shop</h2>
+			<hr />
+			<p>有爱商店</p>
+			<p>有爱商店全称有爱(U&I)慈善商店，它是一个由中山大学学生自发创建的以商业模式带动公益事业发展的闲置物品处理平台。 </p>
+			<p>有爱(U&I)慈善商店的第一家店位于中山大学南校区。（多品美对面二楼。）</p>
+			<p>易易网与有爱(U&I)慈善商店是长期战略合作伙伴关系，易易网为有爱提供强大的互联网技术支持。</p>
+			<p>1.发布的信息若勾选了有爱商店，即表示此物品将通过有爱商店进行交易。<br />2.若您选择了通过有爱商店进行交易，那在发布信息的同时，您需要自行到有爱商店进行有爱托卖业务的相关流程。<br />3.通过有爱进行交易，将节省交易的时间，交易双方不用当面交易，打破了一定的时空限制。<br />4.易易网在交易过程提供了信息的流动，有爱提供了物品的流动，相当于一个“中转站”。<br />5.具体的服务方式请参照有爱的官方网站 <a href="http://www.youaishop.com">youaishop.com</a> 。</p>
+			
+		</form>
+	</div>
+	<div id="sign_footer"></div>
+</div>
+<!--main_right end--> 
+
+<!--black_footer start-->
+<div id="black_footer"><div id="copyright">©Yeeyee.net 版权所有 Version Beta </div><div id="about"><a href="aboutus.html" target="_blank">关于易易</a><a href="auth.html" target="_blank">校友认证</a><a href="TOS.html" target="_blank">服务条款</a><a href="FAQ.html" target="_blank">常见问题</a></div></div>
+<!--black_footer end-->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2ec459fcba3ad369fc06661b2cbaf255' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+<style type="text/css">body{background-image:url(images/others/bgunsure2.jpg);}</style>

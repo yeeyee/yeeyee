@@ -1,0 +1,160 @@
+@charset "utf-8";
+#main_left #con #userHistory{
+	margin-left:17px;
+	width:347px;
+	height:200px;
+}#main_left #con  #userHistory tr{
+	border-collapse:collapse;	
+}#main_left #con  #userHistory tr:first-child td{
+	width:70px;
+}
+#main_left #con  #userHistory span{
+	color:#999999;
+}#main_left #con  #userHistory span:hover{
+	background-color:#F0F0F0;
+}
+	#main_left #con .userImg{
+		vertical-align:top;
+		border-right:2px solid #666;
+	}#main_left #con .userImg img{
+		margin-top:10px;
+		margin-left:11px;
+	}#main_left #con #userName{
+		height:30px;
+	}#main_left #con #userName div{
+		font-weight:bold;
+		font-size:24px;
+		width:275px;
+	}#main_left #con #userName img{
+		cursor:pointer;
+	}
+	
+	#main_left #con .litl{
+		width:135px;
+		border-top:2px solid #666;
+	}#main_left #con .lit2{
+		border-right:2px solid #666;
+	}#main_left #con #e-mail{
+		height:30px;
+	}
+
+
+#main_right #set_top{
+	float:left;
+	width:618px;
+	height:11px;
+	background-image:url(../images/others/cardBg.png);
+	background-position:0 0;
+	background-repeat:no-repeat;
+}
+
+#main_right #set_footer{
+	float:left;
+	width:618px;
+	height:11px;
+	background-image:url(../images/others/cardBg.png);
+	background-position:-618px 0;
+	background-repeat:no-repeat;
+}
+
+#main_right #set_con{
+	float:left;
+	display:block;
+	width:618px;
+	background-image:url(../images/others/cardBg.png);
+	background-position:-1236px 0;
+	background-repeat:repeat-y;
+}#main_right #set_con #title{
+	margin-left:30px;
+	margin-top:10px;
+	margin-bottom:10px;
+}#main_right #set_con #sections{
+	margin-left:30px;
+	width:555px;
+	height:30px;
+	line-height:30px;
+	border-bottom:2px solid #666;
+	border-top:2px solid #666;
+	margin-bottom:10px;
+}
+	#main_right #set_con #sections span{
+		cursor:pointer;
+		width:85px;
+		text-align:center;
+	}#main_right #set_con #sections span:hover{
+		background-image:url(../images/others/buttonBg4.gif);
+		background-repeat:repeat-x;
+		background-position:0 0;
+	}#main_right #set_con #sections .click{
+		background-image:url(../images/others/buttonBg4.gif);
+		background-repeat:repeat-x;
+		background-position:0 0;
+	}
+	
+	#main_right #set_con>div{
+		width:555px;
+		margin-left:30px;
+	}#main_right #set_con li{
+		margin:10px 0 0 10px;
+	}
+	#main_right #set_con input[type='text'],#main_right #set_con #userPasswordSet_div input[type='password']{
+		width:340px;
+		height:40px;
+		line-height:40px;
+	}
+	
+	#main_right #set_con .head{
+		width:130px;
+		float:left;
+		height:45px;
+		line-height:45px;
+		text-align:center;
+	}
+	#main_right #set_con  select{
+		margin-left:30px;
+		font-size:14px;
+	}
+	
+	#main_right #set_con .change{
+		background-image:url(../images/others/buttonBg4.gif);
+		background-repeat:repeat-x;
+		background-position:0 0;
+		height:32px;
+		width:100px;
+		line-height:32px;
+		text-align:center;
+		margin-left:450px;
+		cursor:pointer;
+		color:#FFF;
+		margin-bottom:10px;
+		float:left;
+	}
+	
+	#userImgSet_div #currentavatar{
+		text-align:center;
+	}#userImgSet_div #currentavatar img{
+		width:200px;
+		height:200px;
+	}
+	#inputForm_photo{
+		width:200px;
+		height:40px;
+		background-color:#FFFFB0;
+		margin:auto;
+		line-height:40px;
+		text-align:center;
+		background-image:url(../images/others/more_less_right_wrong.gif);
+		background-position:68px 15px;
+		background-repeat:no-repeat;
+	}#userImgSet_div #inputForm_photoUp #inputForm_photo:hover{
+		background-color:##FFFFDF;
+	}
+	
+	#userPasswordSet_div,#userImgSet_div,#contractSet_div,#profileSet_div{
+		display:none;
+	}
+
+#system_message{
+	background-repeat:no-repeat;
+	padding-left:20px;
+}

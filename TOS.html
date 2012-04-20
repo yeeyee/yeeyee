@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易易网 校园分类信息平台</title>
+<script type="text/javascript" src="//lib.sinaapp.com/js/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery.js">\x3C/script>')</script>
+<script type="text/javascript" src="js/yeeyee.js"></script>
+<link rel="stylesheet" type="text/css" href="css/yeeyee.css" />
+<link rel="stylesheet" type="text/css" href="css/signupForm.css" />
+<link rel="shortcut icon" href="yeeLogo.png" />
+<!--[if lt IE 7]><script language="javascript">location.replace("ie6index.html");</script> <![endif]-->
+<script>
+$(function(){
+	//定义autoYCenter函数，自动垂直居中
+	function autoYCenter($a){
+		winHeight=$(window).height();
+		if((winHeight)<($a.height()+35+11+25)){
+			z=0;
+		}else{
+			z=($(window).height()-$a.height())/2-30;
+		}
+		$a.animate({"margin-top":z},200);
+	}
+	autoYCenter($("#main_right"));
+	autoYCenter($("#main_left"));
+	
+	set=window.setInterval(function(){
+		autoYCenter($("#main_right"));
+	},3000);
+		
+	$(window).bind("resize",function(){
+		autoYCenter($("#main_right"));
+		autoYCenter($("#main_left"));
+	});
+	$(window).scroll(function(){
+		autoYCenter($("#main_right"));
+		autoYCenter($("#main_left"));
+	});
+	
+	$("#sign_con_signup").click(function(){
+		findEmail=$("#find_e-mail").val();
+		$.post("service/findpassword.php",{"findEmail":findEmail},function(data){	
+			$("#systemMessage").text(data).ready(function(e) {
+				$("#systemMessage").slideDown(200);
+			});
+		},"text");
+	});
+	$("#main_right #sign_con #firstStep input").focusAndBlur();//为各input加focusAndBlur入函数
+	
+});
+</script>
+</head>
+
+<body>
+<!--black_top star-->
+<div id="black_top">
+	<div id="location"> <a id="location_sc">中山大学（南校区）</a><a id="location_sw" >切换</a> </div>
+	<div id="logo"><a href="/"><img src="images/others/yeeLogo.png" width="27" height="27" alt="yeeLogo" />易易网</a></div>
+	<div id="search">
+			<input type="text" name="search" />
+			<div>易搜</div>
+	</div>
+	<div id="status">
+		<div id="sign">TOS</div>
+		<div id="user"></div>
+		<div id="loginForm" class="popup"></div>
+	</div>
+</div>
+<!--black_top end--> 
+
+<!--main_left start-->
+<div id="main_left">
+	<div id="top"></div>
+	<div id="con">
+		<div id="logo_big"><img src="../images/others/yeeLogo.png" width="138" height="138" alt="logo_big" /></div>
+		<div id="join">
+			<h1>服务条款</h1>
+			<h4> T.O.S </h4>
+		</div>
+	</div>
+	<div id="footer"></div>
+</div>
+<!--main_left end--> 
+<!--main_right start-->
+<div id="main_right">
+	<div id="sign_top"></div>
+	<div id="sign_con">
+		<form id="firstStep">
+			<h2>易易网服务条款 Terms Of Service</h2>
+			<hr />
+			<p>1.不要在使用服务的时候威胁，骚扰或伤害他人或侵犯其他人的隐私。<p/>
+			<p>2.易易网不是一个舆论平台，不要发布任何舆论信息。</p>
+			<p>3.如果您对于用户界面或网站功能上有任何建议或idea，这里非常欢迎您的反馈。用户的建议经采纳并在实践后为易易网带来可观测的发展，易易网将会用礼品的形式报答用户。</p>
+			<p>4.所有用户发表的内容，包括文字，照片不代表易易网的观点或立场。</p>
+			<p>5.用户可以通过易易网账号在易易网上发布文字，照片。但任何非法，侮辱，诽谤，不适当，粗俗，色情，淫秽，政治，不雅，侵害他人隐私，偏见，针对种族，民族，宗教等言论，或其他不良内容和照片是不允许发表和上传的。您有责任对你所发布或所做的事情负责。</p>
+			<p>6.不要以一些公司的名称，或者一些名人的的名称，或者毫无意义的名称故意抢注作为你的用户名。易易网有权利删除此类的账户进行清除，以确保它们的权利。</p>
+			<p>7.您所登录的密码会在你注册的时候加密保存，您同样有责任记牢此密码。这里强烈建议您使用复杂的强密码来保证您的密码安全。</p>			
+			<p>8.用户同意遵守《中华人民共和国保守国家秘密法》、《中华人民共和国计算机信息系统安全保护条例》、《计算机软件保护条例》等有关计算机及互联网规定的法律和法规、实施办法。在任何情况下，易易网合理地认为用户的行为可能违反上述法律、法规，易易网可以在任何时候，不经事先通知终止向该用户提供服务。</p>
+			<p>9.用户应了解国际互联网的无国界性，应特别注意遵守当地所有有关的法律和法规。</p>
+			<p>10.如果违反上述条款，我们有权利删除其内容或使用者账号。</p>
+			<p>11.易易网承诺尽最大能力保护用户的隐私和数据安全。如遇到不可抵抗力，包括但不限于地震，黑客入侵等情况，用户因此受到的各种损失易易网不负任何责任。</p>
+			<p>12.如有需要，服务条款将更新或修改。更新或修改时，易易网将新版放置于网站上，并通过电子邮件通知用户，如果用户继续使用易易网的服务，则视为用户同意新的条款。一般情况下，易易网不会增加用户的义务，不会削减用户的权利。</p>
+			<p>13.解释，修改和更新服务条款的权利均属于易易网。</p>
+			
+		</form>
+	</div>
+	<div id="sign_footer"></div>
+</div>
+<!--main_right end--> 
+
+<!--black_footer start-->
+<div id="black_footer"><div id="copyright">©Yeeyee.net 版权所有 Version Beta </div><div id="about"><a href="aboutus.html" target="_blank">关于易易</a><a href="auth.html" target="_blank">校友认证</a><a href="TOS.html" target="_blank">服务条款</a><a href="FAQ.html" target="_blank">常见问题</a></div></div>
+<!--black_footer end-->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2ec459fcba3ad369fc06661b2cbaf255' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+<style type="text/css">body{background-image:url(images/others/bgunsure2.jpg);}</style>

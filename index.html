@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易易网 校园分类信息平台</title>
+<script type="text/javascript" src="//lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/js/jquery.js">\x3C/script>')</script>
+<script type="text/javascript" src="js/yeeyee.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/stream.js"></script>
+<script type="text/javascript" src="js/upload.js" ></script>
+
+<link rel="stylesheet" type="text/css" href="css/yeeyee.css" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="shortcut icon" href="yeeLogo.png" />
+<!--[if lt IE 7]><script language="javascript">location.replace("ie6index.html");</script> <![endif]-->
+<script type="text/javascript">
+$(function(){
+	$("#main_more").hide();
+	function main_list_reY(){
+		var y=0;
+		winHeight=$(window).height();
+		if((winHeight)<(500+35+25+15+15)){
+			y=500;
+			$("#main_left").css("top",35);
+			$("#main_more").css("top",35+5);
+		}else{
+			y=winHeight-(35+25+15+15);
+			$("#main_left").css("top",35+15);
+			$("#main_more").css("top",35+20);
+		}
+		$("#main_left").css("height",y);
+		$("#main_more").css("height",y);
+		$("#main_more_wapper").css("height",y-130);
+		$("#main_left #con").css("height",y-25-19);
+	}
+	main_list_reY();
+	$(window).bind("resize",main_list_reY);
+	$(window).scroll(main_list_reY);
+	
+	//$("#firstBg").animate({opacity:0.5},0);
+	//$("#main_left").css("z-index",52);
+	//$("#firstInput").css({"width":$(".card_inputForm").width(),"height":$(".card_inputForm").height(),"left":$(".card_inputForm").css("left"),"top":$(".card_inputForm").css("top")});
+})
+</script>
+</head>
+
+<body>
+<!--black_top start-->
+<div id="black_top">
+	<div id="location"> <a id="location_sc">中山大学（南校区）</a><a id="location_sw" >切换</a> </div>
+	<div id="logo"><a href="/"><img src="images/others/yeeLogo.png" width="27" height="27" alt="yeeLogo" />易易网</a></div>
+	<div id="search">
+		<input type="text" name="search" />
+		<div >易搜</div>
+	</div>
+	<div id="status">
+		<div id="sign"></div>
+		<div id="user"></div>
+	</div>
+</div>
+<div id="location_others" class="popup">
+	<ul>
+		<li>中山大学东校区</li>
+		<li>中山大学珠海校区</li>
+		<li>中山大学北校区</li>
+	</ul>
+</div>
+<div id="loginForm" class="popup"></div>
+<!--black_top end--> 
+
+<!--main_left start-->
+<div id="main_left">
+	<div id="top"></div>
+	<div id="con">
+		<div id="class">
+			<div id="category">
+				<div>
+					<h1>易易校园分类信息平台</h1>
+				</div>
+				<hr />
+				<div id="nav">
+					<div class="click">物品信息</div>
+					<div>校园信息</div>
+					<div>有爱商店</div>
+					<div style="color:#CCC">图书漂流</div>
+				</div>
+				<hr />
+				<div id="authInfo">
+					<input id="authInfoCheck" name="" type="checkbox" value="" />
+					<label for="authInfoCheck">只显示校友认证的信息</label>
+				</div>
+				<hr style="float:left; width:283px;" />
+				<ul id="allcategory">
+				</ul>
+			</div>
+		</div>
+		<div id="main_more"></div>
+	</div>
+	<div id="footer"></div>
+</div>
+<!--main_left end--> 
+
+<!--main_right start-->
+<div id="main_right"> 
+	<!--card_inputForm_start-->
+	<div class="card_inputForm" id="card_inputForm">
+		<div class="card_top"></div>
+		<div class="card_main">
+			<form id="inputForm">
+				<table>
+					<tr>
+						<td rowspan="2" id="inputForm_left">
+							<div id="inputForm_nameAndPrice">
+								<input type="text" name="inputForm_name" class="grey bigFont" id="inputForm_name" value="要跟大家展示的物品名称"/>
+								<input type="text" name="input_price" id="input_price" class="grey bigFont" value="此物品价格" />
+								<span style="display:none">要跟大家展示的物品名称</span> <span style="display:none">要跟大家说的事情主题</span> <span style="display:none">要参加漂流的图书名称</span> 	
+							</div>
+							<div id="inputForm_words">
+								<textarea class="grey bigFont " name="inputForm_words" rows="3">有什么特别的事要跟大家说呢</textarea>
+							</div>
+							<div id="inputForm_href_div">
+								<input type="text" name="inputForm_href_input" class="grey bigFont" id="inputForm_href_input" value="和这信息相关的网址"/>
+							</div>
+							<div id="inputForm_photoUp">
+								<div id="inputForm_photo">
+									<a id="picFilename">图片</a><a style="display:none"></a>
+								</div>
+								<div id="inputForm_href">
+									<a>超链接</a>
+								</div>
+								<div id="inputForm_addclass1" class="inputForm_addclass">
+									<a>目录</a>
+								</div>
+								<div id="inputForm_addclass2" class="inputForm_addclass">
+									<a>分类</a>
+								</div>
+								<div id="inputForm_uishop">
+									<input id="inputForm_uishop_checkbox" type="checkbox">
+									<label for="inputForm_uishop_checkbox">通过有爱商店托卖</label>
+								</div>
+							</div>
+							
+							<div id="system_message"></div></td>
+						<td id="inputForm_right1"><div class="bigFont" id="inputForm_no">重置</div></td>
+					</tr>
+					<tr>
+						<td id="inputForm_right2"><div class="bigFont" id="inputForm_ok">发布</div>
+							<div class="bigFont" id="inputForm_up">收起</div></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div class="card_footer"></div>
+	</div>
+	<!--card_inputForm_end--> 
+	<!--card_more_start-->
+	<div id="card_more">
+		<div class="card_top"></div>
+		<div class="card_main"></div>
+		<div class="card_footer"></div>
+	</div>
+	<!--card_more_end--> 
+
+	<!--card_back_start-->
+	<div id="card_back">
+		<div class="card_top"></div>
+		<div class="card_main">返回主信息流</div>
+		<div class="card_footer"></div>
+	</div>
+	<!--card_back_end--> 
+	
+	<!--Stream_start-->
+	<div id="stream"> </div>
+	<!--Stream_end--> 
+	
+	<!--card_more2_start-->
+	<div id="card_more2">
+		<div class="card_top"></div>
+		<div class="card_main">加载中，请稍后……（点此刷新）</div>
+		<div class="card_footer"></div>
+	</div>
+	<!--card_more2_end--> 
+	
+</div>
+<!--main_right end--> 
+<!--card_classForm_start-->
+<div id="classForm1" class="popup classForm">
+	<form>
+		<ul>
+		</ul>
+	</form>
+</div>
+<div id="classForm2" class="popup classForm">
+	<form>
+		<ul>
+		</ul>
+	</form>
+</div>
+<!--card_classForm_end--> 
+<!--black_footer start-->
+<div id="black_footer">
+	<div id="about"> <a href="aboutus.html" target="_blank">关于易易</a> <a href="auth.html" target="_blank">校友认证</a> <a href="TOS.html" target="_blank">服务条款</a> <a href="FAQ.html" target="_blank">常见问题</a> </div>
+	<div id="copyright">©Yeeyee.net 版权所有 Version Beta 1.3</div>
+	<div id="sMessages"></div>
+</div>
+<!--black_footer end--> 
+<!--sMessages start-->
+<div id="sMessages_window" class="popup"></div>
+<!--sMessages end--> 
+<div id="upload">&nbsp;</div>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2ec459fcba3ad369fc06661b2cbaf255' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+<style type="text/css">
+body {
+	background-image:url(images/others/bgunsure2.jpg);
+}
+
+</style>

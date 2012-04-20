@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易易网 校园分类信息平台</title>
+<script type="text/javascript" src="//lib.sinaapp.com/js/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery.js">\x3C/script>')</script>
+<script type="text/javascript" src="js/yeeyee.js"></script>
+<script type="text/javascript" src="js/signupForm.js"></script>
+<link rel="stylesheet" type="text/css" href="css/yeeyee.css" />
+<link rel="stylesheet" type="text/css" href="css/signupForm.css" />
+<link rel="shortcut icon" href="yeeLogo.png" />
+<!--[if lt IE 7]><script language="javascript">location.replace("ie6index.html");</script> <![endif]-->
+<script>
+$(function(){
+	//定义autoYCenter函数，自动垂直居中
+	function autoYCenter($a){
+		winHeight=$(window).height();
+		if((winHeight)<($a.height()+35+11+25)){
+			z=0;
+		}else{
+			z=($(window).height()-$a.height())/2-30;
+		}
+		$a.animate({"margin-top":z},200);
+	}
+	autoYCenter($("#main_right"));
+	autoYCenter($("#main_left"));
+		
+	$(window).bind("resize",function(){
+		autoYCenter($("#main_right"));
+		autoYCenter($("#main_left"));
+	});
+	$(window).scroll(function(){
+		autoYCenter($("#main_right"));
+		autoYCenter($("#main_left"));
+	});
+	
+});
+</script>
+</head>
+
+<body>
+<!--black_top star-->
+<div id="black_top">
+	<div id="location"> <a id="location_sc">中山大学（南校区）</a><a id="location_sw" >切换</a> </div>
+	<div id="logo"><a href="/"><img src="images/others/yeeLogo.png" width="27" height="27" alt="yeeLogo" />易易网</a></div>
+	<div id="search">
+		<input type="text" name="search" />
+		<div>易搜</div>
+	</div>
+	<div id="status">
+		<div id="sign">注册向导</div>
+		<div id="user"></div>
+		<div id="loginForm" class="popup"></div>
+	</div>
+</div>
+<!--black_top end--> 
+
+<!--main_left start-->
+<div id="main_left">
+	<div id="top"></div>
+	<div id="con">
+		<div id="logo_big"><img src="images/others/yeeLogo.png" width="138" height="138" alt="logo_big" /></div>
+		<div id="join">
+			<h1>注册新账户</h1>
+			<h4>马上加入我们吧！</h4>
+		</div>
+	</div>
+	<div id="footer"></div>
+</div>
+<!--main_left end--> 
+<!--main_right start-->
+<div id="main_right">
+	<div id="sign_top"></div>
+	<div id="sign_con"><form id="firstStep">
+			<h2>填写你的 E-mail 就可以拥有易易账户啦！</h2>
+			<p>填写你的E-mail即可完成注册。你的E-mail将作为你的易易账号！</p>
+			<input type="text" name="sign_e-mail" id="sign_e-mail" class="grey"  value="此处输入你的E-mail……" />
+			<p>注意，注册代表你接受<a href="TOS.html">易易网服务条款</a>。</p>
+			<label class="wrong"> 你注册的E-mail已被占用噢……</label>
+			<label class="right"> 你注册的E-mail可用！</label>
+			<div id="sign_con_signup">注册</div>
+		</form>
+		<form id="secondStep">
+			<h2>恭喜你，注册成功！</h2>
+			<p>以下是易易系统默认生成的密码：<span id="sign_autopsw"></span></p><p>我们<b>建议你重新修改</b>为你自己的密码！密码不少于6位哦！</p>
+			<input type="password" name="sign_password" id="sign_password" class="grey" value="我的易易登陆密码" />
+			<label class="change1" id="change1">更改</label>
+			<label class="change2" id="change2">跳过</label>
+			<label class="wrong"> 密码少于6位……</label>
+			<label class="right"> 密码符合要求！</label>
+		</form>
+		<form id="thirdStep">
+			<h2>马上开始你的易易吧！</h2>
+			<p><br />
+				我们会发送一封包含你的<b>账号密码</b>的电子邮件到你的E-mail激活信，<b>注意查收</b>
+				现在你可以在易易网和对方获得联系了！<br />
+				注意，只有已激活用户才能<b>发布</b>信息！</p>
+			<p><a id="emailAddress" href="#" target="_blank"><b>点此去你的邮箱 激活易易账户！</b></a></p>
+			<div id="sign_con_detail">填写详细资料</div>
+			<div id="sign_con_go">开始易易之旅</div>
+		</form></div>
+	<div id="sign_footer"></div>
+</div>
+<!--main_right end--> 
+
+<!--black_footer start-->
+<div id="black_footer"><div id="copyright">©Yeeyee.net 版权所有 Version Beta </div><div id="about"><a href="aboutus.html" target="_blank">关于易易</a><a href="auth.html" target="_blank">校友认证</a><a href="TOS.html" target="_blank">服务条款</a><a href="FAQ.html" target="_blank">常见问题</a></div></div>
+<!--black_footer end-->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2ec459fcba3ad369fc06661b2cbaf255' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+<style type="text/css">body{background-image:url(images/others/bgunsure2.jpg);}</style>

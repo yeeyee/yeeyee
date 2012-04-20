@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易易网 校园分类信息平台</title>
+<script type="text/javascript" src="//lib.sinaapp.com/js/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery.js">\x3C/script>')</script>
+<script type="text/javascript" src="js/yeeyee.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/setting.js"></script>
+<script type="text/javascript" src="js/upload.js" ></script>
+
+<link rel="stylesheet" type="text/css" href="css/yeeyee.css" />
+<link rel="stylesheet" type="text/css" href="css/setForm.css" />
+<link rel="shortcut icon" href="yeeLogo.png" />
+<!--[if lt IE 7]><script language="javascript">location.replace("ie6index.html");</script> <![endif]-->
+<script>
+
+</script>
+</head>
+
+<body>
+<!--black_top start-->
+<div id="black_top">
+	<div id="location"> <a id="location_sc">中山大学（南校区）</a><a id="location_sw" >切换</a> </div>
+	<div id="logo"><a href="/"><img src="images/others/yeeLogo.png" width="27" height="27" alt="yeeLogo" />易易网</a></div>
+	<div id="search">
+		<input type="text" name="search" />
+		<div>易搜</div>
+	</div>
+	<div id="status">
+		<div id="sign"></div>
+		<div id="user"></div>
+		<div id="loginForm" class="popup"></div>
+	</div>
+</div>
+<!--black_top end--> 
+
+<!--main_left start-->
+<div id="main_left">
+	<div id="top"></div>
+	<div id="con">
+		<table id="userHistory">
+			<tr>
+				<td class="userImg" id="currentavatar2" rowspan="5"></td>
+				<td id="userName" colspan="2"><div id="userInfo_userName"></div></td>
+			</tr>
+			<tr id="e-mail">
+				<td class="litl" colspan="2" id="userInfo_email"></td>
+			</tr>
+			<tr id="signintimes">
+				<td class="litl" colspan="2" id="userInfo_signintimes"></td>
+			</tr>
+			<tr>
+				<td class="litl lit2">我买过的：<span>未开启</span></td>
+				<td class="litl">我盯上的：<span>未开启</span></td>
+			</tr>
+			<tr>
+				<td class="litl lit2">我卖过的：<span>未开启</span></td>
+				<td class="litl">我在卖的：<span>未开启</span></td>
+			</tr>
+		</table>
+	</div>
+	<div id="footer"></div>
+</div>
+<!--main_left end--> 
+
+<!--main_right end-->
+<div id="main_right">
+	<div id="set_top"></div>
+	<div id="set_con">
+		<div id="title">
+			<h3>个人设置</h3>
+		</div>
+		<div id="sections"><span id="userSet" class="click">用户设置</span> | <span id="userPasswordSet">密码设置</span> | <span id="userImgSet">头像设置</span> | <span id="contractSet">联系设置</span> | <span id="profileSet">个人资料</span></div>
+		<div id="userSet_div">
+			<ul>
+				<li>
+					<div class="head">昵称</div>
+					<input type="text" name="sign_nickName" id="sign_nickName" class="grey" value="我的昵称……" />
+				</li>
+				<li>
+					<div id="save1" class="change">更改</div>
+				</li>
+			</ul>
+		</div>
+		<div id="userPasswordSet_div">
+			<ul>
+				<li>
+					<div class="head">原密码：</div>
+					<input type="password" name="sign_password_old" id="sign_password_old" class="grey" value="......" />
+				</li>
+				<li>
+					<div class="head">新密码：</div>
+					<input type="password" name="sign_password_new" id="sign_password_new" class="grey" value="......" />
+				</li>
+				<li>
+					<div class="head">再次输入新密码：</div>
+					<input type="password" name="sign_password_check" id="sign_password_check" class="grey" value="......" />
+				</li>
+				<li>
+					<div id="savepassword" class="change">更改</div>
+				</li>
+			</ul>
+		</div>
+		<div id="userImgSet_div">
+			<ul>
+				<li id="currentavatar"></li>
+				<li id="inputForm_photoUp">
+					<div id="inputForm_photo">
+						<a id="picFilename">图片</a><a style="display:none"></a>
+					</div>
+					
+				</li>
+				<li>
+					<div id="system_message"></div>
+				</li>
+				<li>
+					<div id="save2" class="change">更改</div>
+				</li>
+			</ul>
+		</div>
+		<div id="contractSet_div">
+			<ul>
+				<li><div class="head">手机</div>
+					<input type="text" name="sign_phone" id="sign_phone" class="grey" value="我的手机长号……" />
+
+				</li>
+				<li><div class="head">短号</div>
+					<input type="text" name="sign_ShortNum" id="sign_ShortNum" class="grey" value="我的手机短号……" />
+
+				</li>
+				<li><div class="head">Q Q</div>
+					<input type="text" name="sign_qq" id="sign_qq" class="grey"  value="我的QQ号码……" />
+
+				</li>
+				<li>
+					<div class="head">微博</div>
+					<input type="text" name="sign_weibo" id="sign_weibo" class="grey"  value="我的微博地址……" />
+
+				</li>
+				<li><div class="head">人人</div>
+					<input type="text" name="sign_renren" id="sign_renren" class="grey"  value="我的人人首页……" />
+
+				</li>
+				<li>
+					<div id="save3" class="change">更改</div>
+				</li>
+			</ul>
+		</div>
+		<div id="profileSet_div">
+			<ul>
+				<li><div class="head">姓名</div>
+					<input type="text" name="sign_realName" id="sign_realName" class="grey" value="我的真实姓名……" />
+
+				</li>
+				<li><div class="head">年级</div>
+					<input type="text" name="sign_grade" id="sign_grade" class="grey" value="我的入学年级……" />
+
+				</li>
+				<li><div class="head">学历</div>
+					<input type="text" name="sign_degree" id="sign_degree" class="grey" value="我的学历……" />
+
+				</li>
+				<li><div class="head">学院</div>
+					<input type="text" name="sign_college" id="sign_college" class="grey" value="我的学院……" />
+
+				</li>
+				<li><div class="head">专业</div>
+					<input type="text" name="sign_major" id="sign_major" class="grey" value="我的专业……" />
+
+				</li>
+				<li><div class="head">备注</div>
+					<input type="text" name="sign_note" id="sign_note" class="grey" value="我的备注……" />
+
+				</li>
+				<li>
+					<div id="save4" class="change">更改</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="set_footer"></div>
+</div>
+<!--main_right end--> 
+
+<!--black_footer start-->
+<div id="black_footer"><div id="copyright">©Yeeyee.net 版权所有 Version Beta </div><div id="about"><a href="aboutus.html" target="_blank">关于易易</a><a href="auth.html" target="_blank">校友认证</a><a href="TOS.html" target="_blank">服务条款</a><a href="FAQ.html" target="_blank">常见问题</a></div></div>
+<!--black_footer end-->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2ec459fcba3ad369fc06661b2cbaf255' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+<style type="text/css">body{background-image:url(images/others/bgunsure2.jpg);}</style>

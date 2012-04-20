@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易易网 校园分类信息平台</title>
+<script type="text/javascript" src="//lib.sinaapp.com/js/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery.js">\x3C/script>')</script>
+<script type="text/javascript" src="js/yeeyee.js"></script>
+<link rel="stylesheet" type="text/css" href="css/yeeyee.css" />
+<link rel="stylesheet" type="text/css" href="css/signupForm.css" />
+<link rel="shortcut icon" href="yeeLogo.png" />
+<!--[if lt IE 7]><script language="javascript">location.replace("ie6index.html");</script> <![endif]-->
+<script>
+$(function(){
+	//定义autoYCenter函数，自动垂直居中
+	function autoYCenter($a){
+		winHeight=$(window).height();
+		if((winHeight)<($a.height()+35+11+25)){
+			z=0;
+		}else{
+			z=($(window).height()-$a.height())/2-30;
+		}
+		$a.animate({"margin-top":z},200);
+	}
+	autoYCenter($("#main_right"));
+	autoYCenter($("#main_left"));
+	
+	set=window.setInterval(function(){
+		autoYCenter($("#main_right"));
+	},3000);
+		
+	$(window).bind("resize",function(){
+		autoYCenter($("#main_right"));
+		autoYCenter($("#main_left"));
+	});
+	$(window).scroll(function(){
+		autoYCenter($("#main_right"));
+		autoYCenter($("#main_left"));
+	});
+	
+	$("#sign_con_signup").click(function(){
+		findEmail=$("#find_e-mail").val();
+		$.post("service/findpassword.php",{"findEmail":findEmail},function(data){	
+			$("#systemMessage").text(data).ready(function(e) {
+				$("#systemMessage").slideDown(200);
+			});
+		},"text");
+	});
+	$("#main_right #sign_con #firstStep input").focusAndBlur();//为各input加focusAndBlur入函数
+	
+});
+</script>
+</head>
+
+<body>
+<!--black_top star-->
+<div id="black_top">
+	<div id="location"> <a id="location_sc">中山大学（南校区）</a><a id="location_sw" >切换</a> </div>
+	<div id="logo"><a href="/"><img src="images/others/yeeLogo.png" width="27" height="27" alt="yeeLogo" />易易网</a></div>
+	<div id="search">
+			<input type="text" name="search" />
+			<div>易搜</div>
+	</div>
+	<div id="status">
+		<div id="sign">About us</div>
+		<div id="user"></div>
+		<div id="loginForm" class="popup"></div>
+	</div>
+</div>
+<!--black_top end--> 
+
+<!--main_left start-->
+<div id="main_left">
+	<div id="top"></div>
+	<div id="con">
+		<div id="logo_big"><img src="../images/others/yeeLogo.png" width="138" height="138" alt="logo_big" /></div>
+		<div id="join">
+			<h1>关于易易</h1>
+			<h4>About us</h4>
+		</div>
+	</div>
+	<div id="footer"></div>
+</div>
+<!--main_left end--> 
+<!--main_right start-->
+<div id="main_right">
+	<div id="sign_top"></div>
+	<div id="sign_con">
+		<form id="firstStep">
+			<h2>关于易易 About us</h2>
+			<hr />
+			<p><b>易易网是什么：</b></p>
+			<p>现在的易易网是一个基于校园的分类信息平台。您可以在这里完成物品交易，发布或浏览兼职招聘信息、校园活动信息以及校园周边生活信息。<br />它提供了更好的信任度，更方便的信息平台，和更方便的交易方式。<br />我们还计划在近期推出校友认证等功能。<br />碎片化、本地化、移动化、社会化网络是我们探索的方向。<br />我们的使命是：易易，让交易更容易。</p>
+			<hr />
+			<p><b>易易的建立和构想：</b></p>
+			<p>通过对于传统电子商务网站和分类信息网站的体验和思考，我们达成了关于易易的初步构想。<br />它提供了更好的信任度，更方便的信息平台，和更方便的交易方式。<br />将同城交易缩小和锁定至校园的范围，建立一个基于更精确位置的分类信息网站。<br />易易网的构思诞生于2011年7月21日，一个因它而不平凡的日子。</p>
+			<hr />
+			<p><b>核心团队：</b></p>
+			<p>LJDe.de<br />易易网 联合创始人兼 CEO&nbsp;&nbsp;&nbsp;&nbsp;个人主页：<a href="http://www.ljde.de/">http://www.ljde.de/</a><br />FYears<br />易易网 联合创始人兼 CTO&nbsp;&nbsp;&nbsp;&nbsp;个人主页：<a href="http://www.wtfy.org/">http://www.wtfy.org/</a><br />Johnny.R<br />易易网 联合创始人兼 CFO&nbsp;&nbsp;&nbsp;&nbsp;个人主页：<a href="http://www.sangxiaoran.com/">http://www.sangxiaoran.com/</a></p>
+			<p>Horance.H&nbsp;&nbsp;&nbsp;&nbsp;易易网 CNO<br />Kevin.L&nbsp;&nbsp;&nbsp;&nbsp;易易网 CMO <br />Eva.L&nbsp;&nbsp;&nbsp;&nbsp;易易网 CCO <br />Gail.M&nbsp;&nbsp;&nbsp;&nbsp;易易网 CSO <br /> Vince.W&nbsp;&nbsp;&nbsp;&nbsp;易易网 CHO <br />Aleksejevski&nbsp;&nbsp;&nbsp;&nbsp;易易网 CDO 兼参谋长联席会议主席 <br />ExoticKnight&nbsp;&nbsp;&nbsp;&nbsp;易易网 技术顾问</p>
+		</form>
+	</div>
+	<div id="sign_footer"></div>
+</div>
+<!--main_right end--> 
+
+<!--black_footer start-->
+<div id="black_footer"><div id="copyright">©Yeeyee.net 版权所有 Version Beta </div><div id="about"><a href="aboutus.html" target="_blank">关于易易</a><a href="auth.html" target="_blank">校友认证</a><a href="TOS.html" target="_blank">服务条款</a><a href="FAQ.html" target="_blank">常见问题</a></div></div>
+<!--black_footer end-->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2ec459fcba3ad369fc06661b2cbaf255' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+<style type="text/css">body{background-image:url(images/others/bgunsure2.jpg);}</style>

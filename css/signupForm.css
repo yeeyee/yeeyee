@@ -1,0 +1,203 @@
+@charset "utf-8";
+#status #sign {
+	color:#FFF;
+	font-size:14px;
+	line-height:25px;
+	position:fixed;
+	top:3px;
+	right:5px;
+}
+#logo_big {
+	float:left;
+	margin-left:20px;
+	margin-right:30px;
+}
+#join {
+*height:140px;
+}
+#join h1 {
+	padding:35px 0 5px 0;
+}
+#join h4 {
+	padding:5px 0 40px 0;
+}
+#main_right #sign_top {
+	float:left;
+	width:618px;
+	height:11px;
+	background-image:url(../images/others/cardBg.png);
+	background-position:0 0;
+	background-repeat:no-repeat;
+}
+#main_right #sign_footer {
+	float:left;
+	width:618px;
+	height:11px;
+	background-image:url(../images/others/cardBg.png);
+	background-position:-618px 0;
+	background-repeat:no-repeat;
+}
+#main_right #sign_con {
+	float:left;
+	display:block;
+	width:618px;
+	background-image:url(../images/others/cardBg.png);
+	background-position:-1236px 0;
+	background-repeat:repeat-y;
+}
+#main_right #sign_con form {
+	margin-left:35px;
+	padding-top:15px;
+	padding-bottom:15px;
+	width:546px;
+	float:left;
+}
+#main_right #sign_con form h2 {
+	margin-left:15px;
+}
+#main_right #sign_con form p {
+	color:#666;
+	margin-left:15px;
+	width:508px;
+	font-size:14px;
+	margin-top:7px;
+}
+#main_right #sign_con form p a {
+	color:#666;
+	font-size:14px;
+	text-decoration:none;
+}
+#main_right #sign_con form p a:hover {
+	background-color:#666;
+	color:#fff;
+}
+#main_right #sign_con #firstStep input {
+	float:left;
+	height:35px;
+	line-height:35px;
+	width:508px;
+	border:2px solid #CCC;
+	margin-top:15px;
+	margin-left:15px;
+*margin-left:-6px;
+}
+#main_right #sign_con #firstStep .right, #main_right #sign_con #secondStep .right {
+	margin-left:15px;
+	margin-top:5px;
+	background-image:url(../images/others/more_less_right_wrong.gif);
+	background-position:0 -46px;
+	background-repeat:no-repeat;
+	padding-left:16px;
+	width:400px;
+	float:left;
+}
+#main_right #sign_con #firstStep .wrong, #main_right #sign_con #secondStep .wrong {
+	margin-left:15px;
+	margin-top:5px;
+	background-image:url(../images/others/more_less_right_wrong.gif);
+	background-position:0 -70px;
+	background-repeat:no-repeat;
+	padding-left:16px;
+	width:400px;
+	float:left;
+}
+#main_right #sign_con #firstStep #sign_con_signup {
+	margin-top:10px;
+	margin-left:375px;
+	text-align:center;
+	color:#FFF;
+	height:32px;
+	line-height:32px;
+	width:150px;
+	cursor:pointer;
+	background-image:url(../images/others/buttonBg4.gif);
+	background-repeat:repeat-x;
+	background-position:0 0;
+	font-size:22px;
+	font-weight:bold;
+	float:left;
+}
+#main_right #sign_con #firstStep #sign_con_signup:hover, #main_right #sign_con #thirdStep #sign_con_detail:hover, #main_right #sign_con #thirdStep #sign_con_go:hover {
+	background-image:url(../images/others/buttonBg4.gif);
+	background-repeat:repeat-x;
+	background-position:0 -32px;
+}
+#main_right #sign_con #secondStep input {
+	height:35px;
+	line-height:35px;
+	width:308px;
+	border:2px solid #CCC;
+	margin-top:15px;
+	margin-left:15px;
+*margin-left:-6px;
+	float:left;
+}
+#main_right #sign_con #secondStep .change1 {
+	background-image:url(../images/others/buttonBg4.gif);
+	background-repeat:repeat-x;
+	background-position:0 0;
+	padding:0 15px 0 15px;
+	height:32px;
+	line-height:32px;
+	text-align:center;
+	margin-left:136px;
+	cursor:pointer;
+	color:#FFF;
+	float:left;
+	margin-top:17px;
+}
+#main_right #sign_con #secondStep .change1:hover {
+	background-position:0 -32px;
+}
+#main_right #sign_con #secondStep .change2 {
+	background-image:url(../images/others/buttonBg4.gif);
+	background-repeat:repeat-x;
+	background-position:0 -65px;
+	padding:0 15px 0 15px;
+	height:32px;
+	line-height:32px;
+	text-align:center;
+	margin-left:136px;
+	cursor:pointer;
+	color:#FFF;
+	float:left;
+	margin-top:17px;
+}
+#main_right #sign_con #secondStep .change2:hover {
+	background-position:0 -97px;
+}
+#main_right #sign_con #thirdStep #sign_con_detail {
+	margin-top:30px;
+	margin-left:15px;
+	text-align:center;
+	color:#FFF;
+	height:32px;
+	line-height:32px;
+	width:150px;
+	cursor:pointer;
+	background-image:url(../images/others/buttonBg4.gif);
+	background-repeat:repeat-x;
+	background-position:0 0;
+	font-size:22px;
+	font-weight:bold;
+	float:left;
+}
+#main_right #sign_con #thirdStep #sign_con_go {
+	margin-top:30px;
+	margin-left:210px;
+	text-align:center;
+	color:#FFF;
+	height:32px;
+	line-height:32px;
+	width:150px;
+	cursor:pointer;
+	background-image:url(../images/others/buttonBg4.gif);
+	background-repeat:repeat-x;
+	background-position:0 0;
+	font-size:22px;
+	font-weight:bold;
+	float:left;
+}
+#main_right #sign_con form .right,#main_right #sign_con form .wrong,#main_right #sign_con #secondStep,#main_right #sign_con #thirdStep{
+	display:none;
+}
