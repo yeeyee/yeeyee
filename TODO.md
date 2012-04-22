@@ -1,1 +1,0 @@
-Add the init .sql structure. Yes, the sql table should be created by hand now, and these source code doesn't provide the concrete structure now.
