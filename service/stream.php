@@ -102,14 +102,14 @@ function loadStream(){
 			'clicktimes'=>$row['clicktimes'],
 			'method'=>$row['method'],
 			'href'=>$row['href'],
-			'withdrawX'=>'false',
+			'withdrawX'=>false,
 			
 			'avatar'=>$row['avatar'],
 			'auth'=>$row['auth'],
 			'nickname'=>$row['nickname']
 		);
 		if ($row['uid']==$_SESSION['uid']){
-			$arr[$row['sid']]['withdrawX']='true';
+			$arr[$row['sid']]['withdrawX']=true;
 		}
 	}
 	
@@ -312,7 +312,7 @@ function targetprofile(){
 			'renren'=>$row['renren'],
 			'note'=>$row['note'],
 			
-			'emailstatus'=>'false'
+			'emailstatus'=>false
 		);
 		
 		$content='
@@ -340,7 +340,7 @@ function targetprofile(){
 		$query2="INSERT INTO sms (sender,receiver,content,time) VALUES ('$uid','$target_uid','$content2',NOW())";
 		$result2=mysql_query($query2);
 		if(buymail($to,$subject,$content)){
-			$arr['emailstatus']='true';
+			$arr['emailstatus']=true;
 		};
 	}
 	echo json_encode($arr);
@@ -489,7 +489,7 @@ function loadMessageBox(){
 				'time'=>$row2['time'],
 				'content'=>$row2['content'],
 				
-				'me'=>'true'
+				'me'=>true
 			);
 		}else{
 			$arr[$row2['smsid']]=array(
@@ -499,7 +499,7 @@ function loadMessageBox(){
 				'time'=>$row2['time'],
 				'content'=>$row2['content'],
 				
-				'me'=>'false'
+				'me'=>false
 			);
 		}		
 	};
@@ -512,7 +512,7 @@ function sendsMessages(){
 	$content=escape_data($_REQUEST['content']);
 	$query="INSERT INTO sms (sender,receiver,content,time) VALUES ('$my_uid','$target_uid','$content',NOW())";
 	$result=mysql_query($query);
-	echo 'false';
+	echo false;
 }
 
 function reloadMessageBox(){
@@ -534,7 +534,7 @@ function reloadMessageBox(){
 				'time'=>$row2['time'],
 				'content'=>$row2['content'],
 				
-				'me'=>'true'
+				'me'=>true
 			);
 		}else{
 			$arr[$row2['smsid']]=array(
@@ -544,7 +544,7 @@ function reloadMessageBox(){
 				'time'=>$row2['time'],
 				'content'=>$row2['content'],
 				
-				'me'=>'false'
+				'me'=>false
 			);
 		}		
 	};
