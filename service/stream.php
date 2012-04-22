@@ -102,14 +102,14 @@ function loadStream(){
 			'clicktimes'=>$row['clicktimes'],
 			'method'=>$row['method'],
 			'href'=>$row['href'],
-			'withdrawX'=>false,
+			'withdrawX'=>0,
 			
 			'avatar'=>$row['avatar'],
 			'auth'=>$row['auth'],
 			'nickname'=>$row['nickname']
 		);
 		if ($row['uid']==$_SESSION['uid']){
-			$arr[$row['sid']]['withdrawX']=true;
+			$arr[$row['sid']]['withdrawX']=1;
 		}
 	}
 	
@@ -255,7 +255,7 @@ function sendemail(){
 	$query="INSERT INTO message_record (uid,sid,time) VALUES ('$uid','$sid',now())";
 	$result=mysql_query($query);
 	
-	$content="系统信息：我（".$_SESSION['nickname']."）对你（".$tempnickname."）的物品感兴趣！";
+	$content="系统信息：我（".$_SESSION['nickname']."）对你（".$tempnickname."）的物品感兴趣，详情请参考系统发出的邮件！";
 	$query="INSERT INTO sms (sender,receiver,content,time) VALUES ('$uid','$target_uid','$content',NOW())";
 	$result=mysql_query($query);
 	
@@ -312,7 +312,7 @@ function targetprofile(){
 			'renren'=>$row['renren'],
 			'note'=>$row['note'],
 			
-			'emailstatus'=>false
+			'emailstatus'=>0
 		);
 		
 		$content='
@@ -336,11 +336,11 @@ function targetprofile(){
 		
 		$uid=$row['uid'];//////////////////
 		$target_uid=$_SESSION['uid'];
-		$content2="系统信息：我（".$row['nickname']."）收到你（".$_SESSION['nickname']."）的联系了！";
+		$content2="系统信息：我（".$row['nickname']."）收到你（".$_SESSION['nickname']."）的联系了，详情请参考系统发出的邮件！";
 		$query2="INSERT INTO sms (sender,receiver,content,time) VALUES ('$uid','$target_uid','$content2',NOW())";
 		$result2=mysql_query($query2);
 		if(buymail($to,$subject,$content)){
-			$arr['emailstatus']=true;
+			$arr['emailstatus']=1;
 		};
 	}
 	echo json_encode($arr);
@@ -489,7 +489,7 @@ function loadMessageBox(){
 				'time'=>$row2['time'],
 				'content'=>$row2['content'],
 				
-				'me'=>true
+				'me'=>1
 			);
 		}else{
 			$arr[$row2['smsid']]=array(
@@ -499,7 +499,7 @@ function loadMessageBox(){
 				'time'=>$row2['time'],
 				'content'=>$row2['content'],
 				
-				'me'=>false
+				'me'=>0
 			);
 		}		
 	};
@@ -512,7 +512,7 @@ function sendsMessages(){
 	$content=escape_data($_REQUEST['content']);
 	$query="INSERT INTO sms (sender,receiver,content,time) VALUES ('$my_uid','$target_uid','$content',NOW())";
 	$result=mysql_query($query);
-	echo false;
+	echo 0;
 }
 
 function reloadMessageBox(){
@@ -534,7 +534,7 @@ function reloadMessageBox(){
 				'time'=>$row2['time'],
 				'content'=>$row2['content'],
 				
-				'me'=>true
+				'me'=>1
 			);
 		}else{
 			$arr[$row2['smsid']]=array(
@@ -544,7 +544,7 @@ function reloadMessageBox(){
 				'time'=>$row2['time'],
 				'content'=>$row2['content'],
 				
-				'me'=>false
+				'me'=>0
 			);
 		}		
 	};
