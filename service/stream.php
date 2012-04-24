@@ -394,6 +394,7 @@ function loadCategoryList(){
 	}
 	
 	$arr=array();
+	$sum=0;
 	while ($row=mysql_fetch_array($result)){
 		$cid=$row['cid'];
 		$cidQuery=" AND cid='$cid'";
@@ -407,8 +408,14 @@ function loadCategoryList(){
 			'cname'=>$row['cname'],
 			'num'=>$num
 		);
-		
+		$sum+=$num;
 	}
+	//全部
+	$arr["0"]=array(
+		'cid'=>"0",
+		'cname'=>"全部",
+		'num'=>$sum
+	);
 	echo json_encode($arr);
 }
 

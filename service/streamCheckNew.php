@@ -25,21 +25,25 @@ function loadStreamCheck(){
 	}
 	switch($type){
 		case 1:
+			$category_type="category_items";
 			$stream_type='stream_items';
 			break;
 		case 2:
+			$category_type="category_school";
 			$stream_type='stream_school';
 			break;
 		case 3:
+			$category_type="category_items";
 			$stream_type='stream_items';
 			break;
 		case 4:
+			$category_type="category_booksrolling";
 			$stream_type='stream_booksrolling';
 			break;
 	}
 	
 	if($searchKey!="yeenosearch"){
-		$searchKey=escape_data($_REQUEST['searchKey']);
+
 		$searchQuery=" And (b.name LIKE '%$searchKey%' OR b.descp LIKe '%$searchKey%') ";
 	}else{
 		$searchQuery=" AND 1 ";
@@ -58,8 +62,9 @@ function loadStreamCheck(){
 	}else{
 		$methodQuery=" AND 1 ";
 	}
-	$query="SELECT a.nickname, a.avatar, a.auth, b.* FROM `profile` AS a, `".$stream_type."` AS b WHERE  a.uid = b.uid ".$cidQuery.$searchQuery.$authQuery.$methodQuery;
 	
+	$query="SELECT a.*, b.*, c.* FROM profile AS a, `".$stream_type."` AS b, ".$category_type." AS c WHERE  a.uid = b.uid AND b.cid = c.cid AND b.status=0 ".$cidQuery.$searchQuery.$authQuery.$methodQuery;
+
 	$result=mysql_query($query);
 	$maxNow=mysql_num_rows($result);
 	echo $maxNow;

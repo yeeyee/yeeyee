@@ -29,7 +29,7 @@ $(function(){
 	//定义搜索框
 		$("#black_top #search div").click(function(){
 			searchKey=$("#black_top #search input").val();
-			//$("#main_left #con #allcategory li").removeClass("main_left_li_click");
+
 			cid=0;
 			initializtion2_1();
 		});
@@ -50,7 +50,6 @@ $(function(){
 				boolean_delayRun=1;	
 			}
 		});
-	//定义"更多"小条
 	//定义“返回主信息流”小条
 	$("#card_back").click(function(){
 		auth=0;	
@@ -311,7 +310,7 @@ $(function(){
 //初始化函数
 	//定时检查新信息
 		set=window.setInterval(function(){
-			loadStream_new();
+			loadStream_new_check();
 			if(maxcardDi>0){
 				$("#card_more .card_main").text("有 "+maxcardDi+" 条新信息，点此刷新信息");
 				$("#card_more").slideDown(200);
@@ -319,9 +318,9 @@ $(function(){
 				$("#card_more").slideUp(200);
 			}
 			loadsms();
-		},15000);//15秒
+		},1500);//15秒
 	//定义"更多"小条
-		$("#card_more,#card_more2").click(function(){
+		$("#card_more2").click(function(){
 			initializtionALL();
 		});
 	//载入左侧的分类列表
@@ -343,7 +342,16 @@ $(function(){
 			maxcardEx=0;maxcardDi=0;
 			$.get("service/streamCheckNew.php",{"func":"loadStreamCheck","type":navtype,"cid":cid,"method":method,"searchKey":searchKey,"auth":auth},function(data){
 				maxcardEx=data;
+				
 				takeone();
+			},"text");
+		}
+		function loadStream_new_check(){
+			$.get("service/streamCheckNew.php",{"func":"loadStreamCheck","type":navtype,"cid":cid,"method":method,"searchKey":searchKey,"auth":auth},function(data){
+				maxcardNow=data;
+				
+				maxcardDi=maxcardNow-maxcardEx;
+				//alert(maxcardDi);
 			},"text");
 		}
 	//载入信息流
@@ -353,15 +361,14 @@ $(function(){
 					maxcardNow=data;
 					maxcardDi=maxcardNow-maxcardEx;
 					cardPointer+=maxcardDi;
+					
 					if(maxcardNow<(cardPointer+cardStep)){
 						$("#card_more2 .card_main").text("加载完毕，到底部（点此刷新）。");
 					}else{
 						$("#card_more2 .card_main").text("加载中，请稍后……（点此刷新）");
 					}
 					$.getJSON("service/stream.php",{"func":"loadstream","cardPointer":cardPointer,"cardStep":cardStep,"type":navtype,"cid":cid,"method":method,"searchKey":searchKey,"auth":auth},function(data){
-						
 						drawCards(data);
-						
 						$.each($(".card_user_words"),function(){							
 							var sid=$(this).parents("tbody").find(".card_goods_sid").text();
 							if(descpStatus[sid]==undefined) descpStatus[sid]=0;
@@ -761,9 +768,6 @@ $(function(){
 					$("input[type='file']").css("z-index","2147483583");
 				}
 			});
-					//$("#inputForm_photo").click(function(){
-//			$("input[type='file']").trigger("click");
-//		});
 		}
 	//定义分类列表classForm1的动作
 		var boolen_addclass1=0;//指示目录下拉表的状态
@@ -1282,6 +1286,7 @@ $(function(){
 	//draw函数
 	//draw函数
 		function drawCards(json){
+			
 			//以下的操作为取出sid，并对其排序，sort函数采用自定义的方式，相当于默认方法的倒序！
 				var a=[];
 				$.each(json,function(){
@@ -1411,11 +1416,14 @@ $(function(){
 					);
 					//事后检查每个card的图片 匹配者运行预加载代码
 					$.each($(".card"),function(){
-						if($(this).find(".card_goods_sid").text()==json[a[i]].sid){
-							imagess(src,$(this).find(".card_pic div:eq(0) img"),checkimg); 
-							return false;
+						if($(this).find(".card_pic div:eq(0) img").length>0){
+							if($(this).find(".card_goods_sid").text()==json[a[i]].sid){
+								imagess(src,$(this).find(".card_pic div:eq(0) img"),checkimg); 
+								return false;
+							}
 						}
 					});
+					
 				};
 		}
 	

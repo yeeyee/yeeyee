@@ -87,8 +87,9 @@ function logout(){
 					$("#card_more2").trigger("click");
 					$.get("service/login.php",{"func":"showsign"},function(data){
 						drawSign(data);
+						checklogin();
 					});
-					checklogin();
+					
 					$("#loginForm").slideUp(200,function(){
 						$.get("service/login.php",{"func":"loadLoginForm"},function(data){
 							drawLoginForm(data);
