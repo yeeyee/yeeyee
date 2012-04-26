@@ -1,13 +1,9 @@
-# Compiled source #
-###################
 *.com
 *.class
 *.dll
 *.exe
 *.o
 *.so
-
-# Packages #
 *.7z
 *.dmg
 *.gz
@@ -17,18 +13,26 @@
 *.tar
 *.zip
 *.log
-*.sql
-*.sqlite
 .DS_Store*
 ehthumbs.db
 Icon?
 Thumbs.db 
 Desktop.ini
 $RECYCLE.BIN/
-.*
-!.gitignore
 *~
 .directory
 .*.sw[a-z]
-*.un~
 Session.vim
+
+.*
+!.gitignore
+
+*.sql
+*.sqlite
+!yeeyee.structure.sql
+
+uploads/userpic/*
+!uploads/userpic/sysUserPic
+
+uploads/itemspic/*
+!uploads/itemspic/sysPics
